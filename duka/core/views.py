@@ -1,9 +1,17 @@
 from django.shortcuts import render, redirect
 
 from .forms import SignupForm
+from item.models import Item, Category
 # Create your views here.
 def index(request):
-    return render(request, "core/index.html", {})
+    items = Item.objects.filter(is_sold=False)[0:8]
+    categories = Category.objects.all()
+        
+    
+    return render(request, "core/index.html", {
+        "items": items,
+        "categories": categories
+    })
 
 def contact(request):
     return render(request, "core/contact.html", {})

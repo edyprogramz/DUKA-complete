@@ -1,0 +1,65 @@
+.gray-container{
+    /* border: 2px solid black; */
+    width: 95%;
+    margin: auto;
+    padding: 20px;
+}
+.container-title{
+    text-align: center;
+    margin-bottom: 15px;
+    margin-top: -10px;
+}
+.container{
+    /* border: 2px solid blue; */
+    padding: 20px;
+    padding-bottom: 20px;
+    display: grid;
+    grid-template-columns: repeat(4, 20%);
+    grid-column-gap: 5%;
+    grid-row-gap: 20px;
+    border-radius: 13px;
+    background-color: var(--gray-very-light);
+}
+/* i will use container 2 for the browse page  */
+.container2{
+    grid-template-columns: repeat(3, 30%);
+}
+.each-item{
+    /* border: 2px solid red; */
+    padding: 10px;
+    margin: auto;
+    height: 300px;
+    width: 300px;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: var(--white);
+}
+/* .item-link{} */
+.item-image{
+    /* border: 2px solid blue; */
+    overflow: hidden;
+    height: 80%;
+}
+.item-desc{
+    /* border: 2px solid rgb(30, 255, 0); */
+    padding: 5px;
+    height: 20%;
+    overflow: hidden;
+}
+.item-image img{
+    /* height: 100%; */
+    /* width: 100%; */
+    /* object-fit: cover; */
+}
+.category{
+    height: auto;
+    width: auto;
+}
+.item-hover{
+    border: 2px solid black;
+    transition: ease-in-out .5s;
+}
+.item-hover:hover{
+    transform: translateY(-9px);
+    background-color: #8be063;
+}

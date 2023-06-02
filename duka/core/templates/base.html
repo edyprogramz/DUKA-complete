@@ -28,10 +28,10 @@
     </head>
     <body>
         <nav class="navbar">
-            <a href="{% url 'core:index' %}" class="links logo">CHANGED</a>
+            <a href="{% url 'core:index' %}" class="links logo">DUKA</a>
             <ul class="navlink-container">
                 <li class="lists"><a href="#" class="links navlinks navlink">New Item</a></li>
-                <li class="lists"><a href="#" class="links navlinks navlink">Browse</a></li>
+                <li class="lists"><a href="{% url 'item:items' %}" class="links navlinks navlink">Browse</a></li>
                 <li class="lists"><a href="{% url 'core:signup' %}" class="links navlinks teal-btn">Sign Up</a></li>
                 <li class="lists"><a href="{% url 'core:login' %}" class="links navlinks gray-btn">Log In</a></li>
             </ul>

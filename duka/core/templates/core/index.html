@@ -3,8 +3,44 @@
 {% block title %}Welcome{% endblock title %}
 
 {% block content %}
-<head></head>
-<h1 class="headers">Home Page</h1>
-<h1 class="header-two">Home Page</h1>
+<head>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'core/index.css' %}">
+</head>
+{% comment %} <h1 class="headers">Home Page</h1> {% endcomment %}
+<div class="gray-container">
+    <h2 class="header-two container-title">Newest Items</h2>
+    <div class="container">
+        {% for item in items %}
+            <a href="#" class="links item-link">
+                <div class="each-item item-hover">
+                    <div class="item-image">
+                        <img src="{{item.image.url}}" alt="img"/>
+                    </div>
+                    <div class="item-desc">
+                        <h3>{{item.name}}</h3>
+                        <p><strong>Price:</strong>${{item.price}}</p>
+                    </div>
+                </div>
+            </a>
+        {% endfor %}
+    </div>
+</div>
+{% comment %} categories {% endcomment %}
+<div class="gray-container">
+    <h2 class="header-two container-title">Categories</h2>
+    <div class="container">
+        {% for category in categories %}
+            <a href="#" class="links item-link">
+                <div class="each-item category">
+                    <div class="item-desc">
+                        <h3>{{category.name}}</h3>
+                        <p>{{category.items.count}} items</p>
+                    </div>
+                </div>
+            </a>
+        {% endfor %}
+    </div>
+</div>
 
 {% endblock content %}
