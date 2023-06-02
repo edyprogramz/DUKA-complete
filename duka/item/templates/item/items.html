@@ -37,7 +37,7 @@
         <h2 class="header-two container-title">Items</h2>
         <div class="container container2">
             {% for item in items %}
-                <a href="#" class="links item-link">
+                <a href="{% url 'item:detail' item.id %}" class="links item-link">
                     <div class="each-item browser-each-item">
                         <div class="item-image">
                             <img src="{{item.image.url}}" alt="img"/>

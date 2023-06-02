@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}{{title}}{% endblock title %}
+
+{% block content %}
+<head>
+    {% load static %}
+    <link rel="stylesheet" href="item/form.css">
+</head>
+<form action="{% url 'item:new' %}" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button type="submit" class="gray-btn">submit</button>
+</form>
+{% endblock content %}

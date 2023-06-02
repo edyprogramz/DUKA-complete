@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block title %}{{item.name}}{% endblock title %}
+
+{% block content %}
+<head>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'item/detail.css' %}">
+    {% comment %} related_items {% endcomment %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'core/index.css' %}">
+</head>
+<div class="detail-item">
+    <div class="detail-item-img">
+        <img src="{{item.image.url}}" alt="img"/>
+    </div>
+    <div class="detail-item-desc">
+        <h2 class="headers detail-item-name">{{item.name}}</h2>
+        <p><strong>Description:</strong></br>{{item.description}}</p>
+        <p><strong>Price: </strong> </br>$ {{item.price}}</p></br>    
+        <div class="btn-div">
+            {% if request.user == item.created_by %}
+                <a href="{% url 'item:edit' item.id %}" class="teal-btn links">Edit</a>
+                <a href="{% url 'item:delete' item.id %}" class="gray-btn links">Delete</a>
+            {% else %}
+                <a href="#" class="teal-btn links">Contact Seller</a>
+            {% endif %} 
+        </div>    
+    </div>
+</div>
+{% comment %} related items  {% endcomment %}
+<div class="gray-container">
+    <h2 class="header-two container-title">Related Items</h2>
+    <div class="container container2">
+        {% for item in related_items %}
+            <a href="{% url 'item:detail' item.id %}" class="links item-link">
+                <div class="each-item item-hover">
+                    <div class="item-image">
+                        <img src="{{item.image.url}}" alt="img"/>
+                    </div>
+                    <div class="item-desc">
+                        <h3>{{item.name}}</h3>
+                        <p><strong>Price:</strong>${{item.price}}</p>
+                    </div>
+                </div>
+            </a>
+        {% endfor %}
+    </div>
+</div>
+{% endblock content %}

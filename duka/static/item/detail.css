@@ -1,0 +1,31 @@
+.detail-item{
+    border: 2px solid black;
+    width: 50%;
+    margin: auto;
+    padding: 20px;
+    display: flex;
+    margin-bottom: 20px;
+}
+.detail-item-img{
+    /* border: 2px solid blue; */
+    flex: .6;
+    overflow: hidden;
+}
+.detail-item-img img{
+    height: 90%;
+    object-fit: cover;
+}
+.detail-item-desc{
+    /* border: 2px solid blue; */
+    background-color: var(--gray-very-light);
+    flex: .5;
+    padding: 20px;
+}
+.detail-item-name{
+    margin-bottom: 5px;
+}
+.btn-div{
+    /* border: 2px solid red; */
+    background-color: rgb(248, 247, 247);
+    padding: 20px;
+}

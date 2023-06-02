@@ -10,9 +10,9 @@
 {% comment %} <h1 class="headers">Home Page</h1> {% endcomment %}
 <div class="gray-container">
     <h2 class="header-two container-title">Newest Items</h2>
-    <div class="container">
+    <div class="container container2">
         {% for item in items %}
-            <a href="#" class="links item-link">
+            <a href="{% url 'item:detail' item.id %}" class="links item-link">
                 <div class="each-item item-hover">
                     <div class="item-image">
                         <img src="{{item.image.url}}" alt="img"/>
