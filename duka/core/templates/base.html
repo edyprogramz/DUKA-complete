@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch&display=swap" rel="stylesheet">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins&family=Roboto&display=swap" rel="stylesheet">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title> {% block title %}{% endblock title %} | DUKA</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'base.css' %}">
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'navbar_footer.css' %}">
+    </head>
+    <body>
+        <nav class="navbar">
+            <a href="{% url 'core:index' %}" class="links logo">CHANGED</a>
+            <ul class="navlink-container">
+                <li class="lists"><a href="#" class="links navlinks navlink">New Item</a></li>
+                <li class="lists"><a href="#" class="links navlinks navlink">Browse</a></li>
+                <li class="lists"><a href="{% url 'core:signup' %}" class="links navlinks teal-btn">Sign Up</a></li>
+                <li class="lists"><a href="{% url 'core:login' %}" class="links navlinks gray-btn">Log In</a></li>
+            </ul>
+        </nav>
+        {% block content %}
+        
+        {% endblock content %}
+        <footer class="footer">
+            <div class="about-section">
+                <h3 class="header-two footer-header">About</h3>
+                <p>This is my first ecommerce project using Django Framework. Cool 😁</p>
+            </div>
+            <div class="menu-section">
+                <h3 class="header-two footer-header">Menu</h3>
+                <ul>
+                    <li class="lists"><a href="{% url 'core:index' %}" class="links footer-link">Home</a></li>
+                    <li class="lists"><a href="{% url 'core:contact' %}" class="links footer-link">Contact</a></li>
+                    <li class="lists"><a href="#" class="links footer-link">Privacy Policy</a></li>
+                    <li class="lists"><a href="#" class="links footer-link">Terms of Use</a></li>
+                </ul>
+            </div>
+        </footer>
+
+
+    </body>
+</html>

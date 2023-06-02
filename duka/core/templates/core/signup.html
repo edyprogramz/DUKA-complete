@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}Signup{% endblock title %}
+
+{% block content %}
+<head></head>
+<h1>Signup</h1>
+<form action="{% url 'core:signup' %}" method="post">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button type="submit" class="teal-btn">submit</button>
+    </br>
+    {% if form.errors or form.non_field_errors %}
+        <div>
+            {% for field in form.errors %}
+                {{field.errors}}
+            {% endfor %}
+
+            {{form.non_field_errors}}
+        </div>
+    {% endif %}
+</form>
+{% endblock content %}
