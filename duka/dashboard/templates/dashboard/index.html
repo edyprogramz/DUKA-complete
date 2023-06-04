@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block title %}My Items{% endblock title %}
+
+{% block content %}
+<head>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'core/index.css' %}">
+    <link rel="stylesheet" href="{% static 'dashboard/index.css' %}">
+</head>
+<div class="browser-items">
+    <h2 class="header-two container-title">My Items</h2>
+    <div class="container container2">
+        {% for item in items %}
+            <a href="{% url 'item:detail' item.id %}" class="links item-link my-item">
+                <div class="each-item browser-each-item">
+                    <div class="item-image">
+                        <img src="{{item.image.url}}" alt="img"/>
+                    </div>
+                    <div class="item-desc">
+                        <h3>{{item.name}}</h3>
+                        <p><strong>Price:</strong>${{item.price}}</p>
+                    </div>
+                </div>
+            </a>
+        {% endfor %}
+    </div>
+</div>
+
+<div id="load-btn-container">
+    <button class="teal-btn load-btn" id="load-btn">LOAD MORE</button>
+</div>
+
+
+<script src="{% static 'dashboard/index.js' %}"></script>
+
+{% endblock content %}

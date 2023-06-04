@@ -32,8 +32,13 @@
             <ul class="navlink-container">
                 <li class="lists"><a href="{% url 'item:new' %}" class="links navlinks navlink">New Item</a></li>
                 <li class="lists"><a href="{% url 'item:items' %}" class="links navlinks navlink">Browse</a></li>
-                <li class="lists"><a href="{% url 'core:signup' %}" class="links navlinks teal-btn">Sign Up</a></li>
-                <li class="lists"><a href="{% url 'core:login' %}" class="links navlinks gray-btn">Log In</a></li>
+                {% if request.user.is_authenticated %}
+                    <li class="lists"><a href="{% url 'core:signup' %}" class="links navlinks teal-btn">Inbox</a></li>
+                    <li class="lists"><a href="{% url 'dashboard:index' %}" class="links navlinks gray-btn">Dashboard</a></li>
+                {% else %}
+                    <li class="lists"><a href="{% url 'core:signup' %}" class="links navlinks teal-btn">Sign Up</a></li>
+                    <li class="lists"><a href="{% url 'core:login' %}" class="links navlinks gray-btn">Log In</a></li>
+                {% endif %}    
             </ul>
         </nav>
         {% block content %}
