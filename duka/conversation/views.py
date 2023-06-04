@@ -62,7 +62,21 @@ def detail(request, conversation_id):
     if messages_from_other_users.exists():
         conversation.is_read = True
         conversation.save()
-    
+        
+    if request.method == "POST":
+        form = ConversationMessageForm(request.POST)
+        
+        if form.is_valid():
+            conversation_message = form.save(commit=False)
+            conversation_message.conversation = conversation
+            conversation_message.created_by = request.user
+            conversation_message.save()
+            
+            return redirect('.')
+    else:
+        form = ConversationMessageForm()
+        
     return render(request, "conversation/detail.html", {
-        "conversation": conversation
+        "conversation": conversation,
+        "form": form
     })

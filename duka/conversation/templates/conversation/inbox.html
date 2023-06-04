@@ -12,7 +12,7 @@
     <div class="inbox">
         {% for conversation in conversations %}
             <a href="{% url 'conversation:detail'  conversation.id %}" class="links item-link message-link">
-                <div class="inbox-boxes unread {% if conversation.id.is_read %} read {% endif %}">
+                <div class="inbox-boxes {% if conversation.is_read %}read{% else %}unread{% endif %}">
                     <div class="item-image">
                         <img src="{{conversation.item.image.url}}" alt="img"/>
                     </div>

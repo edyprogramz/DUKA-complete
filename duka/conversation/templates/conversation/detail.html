@@ -5,23 +5,35 @@
 {% block content %}
 <head>
     {% load static %}
-    {% comment %} <link rel="stylesheet" href="{% static 'conversation/inbox.css' %}"> {% endcomment %}
+    <link rel="stylesheet" href="{% static 'conversation/detail.css' %}">
 </head>
 <h1>Chat</h1>
-<div>
-    {% for message in conversation.messages.all %}
-        
-        <div class="">
-
-            <div class="item-desc">
-                
-                <p><strong>{{message.created_by.username}}</strong> | {{message.created_at}}</p>
-                <p>{{message.content}}</p>
-                
+<div class="chat-page">
+    <div class="message-container">
+        {% for message in conversation.messages.all %}
+            <div class="message-text{% if message.created_by == request.user %} right {% else %} left {% endif %}">
+                <div>  
+                    <p><strong>{{message.created_by.username}}</strong> | @{{message.created_at}}</p>
+                    <p>{{message.content}}</p>  
+                </div>
             </div>
-           
-        </div>
-        
-    {% endfor %}
+        {% endfor %}
+    </div>
+    <form method="post" action=".">
+        {% csrf_token %}
+        <label>Chat Here</label></br>
+        <p>{{form.content}}</p>
+        <button type="submit" class="teal-btn">send</button>
+
+        {% if form.errors or form.non_field_errors %}
+            {% for field in form %}
+            <div>
+                {{field.errors}}
+                {{form.non_field_errors}}
+            </div>
+            {% endfor %}
+            
+        {% endif %}
+    </form>
 </div>
 {% endblock content %}

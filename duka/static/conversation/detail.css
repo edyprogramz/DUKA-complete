@@ -1,0 +1,29 @@
+.chat-page{
+    /* border: 2px solid blue; */
+    /* display: flex; */
+    padding: 20px;
+    background-color: antiquewhite;
+}
+.message-container{
+    border: 2px solid black;
+    margin-bottom: 20px;
+    /* height: auto; */
+    padding: 20px;
+
+}
+.chat-page form{
+    border: 2px solid black;
+    padding: 20px;
+}
+.message-text{
+    border: 2px solid white;
+    /* width: 50%; */
+    margin-bottom: 5px;
+    padding: 10px;
+}
+.left{
+    text-align: left;
+}
+.right{
+    text-align: right;
+}
