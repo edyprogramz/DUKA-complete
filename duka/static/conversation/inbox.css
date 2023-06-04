@@ -1,0 +1,40 @@
+.read {
+    background-color: #098cf8; /* Default background color */
+}
+  
+.unread {
+background-color: #ffff00; /* Unread background color */
+}
+  
+
+
+
+.inbox{
+    /* border: solid 2px blue; */
+    margin-bottom: 20px;
+    padding: 20px;
+}
+.inbox-boxes{
+    border: solid 2px black;
+    width: 700px;
+    display: flex;
+    align-items: center;
+    /* justify-content: space-between; */
+}
+.inbox-boxes .item-image{
+    /* border: solid 2px red; */
+    height: 120px;
+    width: 200px;
+    /* flex: .4;/ */
+}
+.inbox-boxes .item-image img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+.inbox-boxes .item-desc{
+    /* border: 2px solid palevioletred; */
+    /* flex: 1; */
+    margin-left: 20px;
+    
+}

@@ -23,7 +23,7 @@
                 <a href="{% url 'item:edit' item.id %}" class="teal-btn links">Edit</a>
                 <a href="{% url 'item:delete' item.id %}" class="gray-btn links">Delete</a>
             {% else %}
-                <a href="#" class="teal-btn links">Contact Seller</a>
+                <a href="{% url 'conversation:new' item.id %}" class="teal-btn links">Contact Seller</a>
             {% endif %} 
         </div>    
     </div>

@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block title %}Inbox{% endblock title %}
+
+{% block content %}
+<head>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'conversation/inbox.css' %}">
+</head>
+<h1>Inbox</h1>
+{% if conversations %}
+    <div class="inbox">
+        {% for conversation in conversations %}
+            <a href="{% url 'conversation:detail'  conversation.id %}" class="links item-link message-link">
+                <div class="inbox-boxes unread {% if conversation.id.is_read %} read {% endif %}">
+                    <div class="item-image">
+                        <img src="{{conversation.item.image.url}}" alt="img"/>
+                    </div>
+                    {% for member in conversation.members.all %}
+                    <div class="item-desc">
+                        {% if member != request.user %}
+                        <p><strong>{{member.username}}</strong> | {{conversation.modified_on}}</p>
+                        <p>{{conversation.item.name}}</p>
+                        {% endif %}
+                    </div>
+                    {% endfor %}
+                </div>
+            </a>
+        {% endfor %}
+    </div>
+{% else %}
+<div class="inbox">No Conversations😥</div>
+{% endif %}
+
+{% comment %} <script>
+    var message = document.querySelector('.message');
+    var messageLink = document.querySelector('.message-link');
+
+    messageLink.addEventListener('click', function(event) {
+    event.preventDefault(); // Prevent the default behavior of the link
+    message.classList.remove('unread'); // Remove 'unread' class
+    });
+
+</script> {% endcomment %}
+{% endblock content %}

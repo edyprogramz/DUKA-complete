@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}Chat{% endblock title %}
+
+{% block content %}
+<head></head>
+<h1>New Conversation</h1>
+<form method="post" action=".">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button type="submit" class="teal-btn">submit</button>
+
+    {% if form.errors or form.non_field_errors %}
+        {% for field in form %}
+        <div>
+            {{field.errors}}
+            {{form.non_field_errors}}
+        </div>
+        {% endfor %}
+        
+    {% endif %}
+</form>
+{% endblock content %}

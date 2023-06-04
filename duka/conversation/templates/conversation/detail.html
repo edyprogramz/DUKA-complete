@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}Inbox{% endblock title %}
+
+{% block content %}
+<head>
+    {% load static %}
+    {% comment %} <link rel="stylesheet" href="{% static 'conversation/inbox.css' %}"> {% endcomment %}
+</head>
+<h1>Chat</h1>
+<div>
+    {% for message in conversation.messages.all %}
+        
+        <div class="">
+
+            <div class="item-desc">
+                
+                <p><strong>{{message.created_by.username}}</strong> | {{message.created_at}}</p>
+                <p>{{message.content}}</p>
+                
+            </div>
+           
+        </div>
+        
+    {% endfor %}
+</div>
+{% endblock content %}
